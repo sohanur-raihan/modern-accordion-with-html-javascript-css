@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern FAQ Accordion</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+        
+        .faq-container {
+            width: 100%;
+            max-width: 800px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .faq-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px 30px;
+            text-align: center;
+        }
+        
+        .faq-header h1 {
+            font-weight: 600;
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+        
+        .faq-header p {
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .accordion {
+            list-style: none;
+        }
+        
+        .accordion-item {
+            border-bottom: 1px solid #eaeaea;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+        
+        .accordion-header {
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background-color: white;
+        }
+        
+        .accordion-header:hover {
+            background-color: #f9f9f9;
+        }
+        
+        .accordion-header h3 {
+            font-weight: 500;
+            font-size: 18px;
+            color: #333;
+            margin: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .accordion-header:hover h3 {
+            color: #667eea;
+        }
+        
+        .accordion-header .icon {
+            width: 25px;
+            height: 25px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .accordion-header .icon::before,
+        .accordion-header .icon::after {
+            content: '';
+            position: absolute;
+            background-color: #667eea;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+        
+        .accordion-header .icon::before {
+            width: 15px;
+            height: 3px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .accordion-header .icon::after {
+            width: 3px;
+            height: 15px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .accordion-item.active .accordion-header .icon::after {
+            height: 0;
+        }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 0 30px;
+            background-color: #f9f9f9;
+        }
+        
+        .accordion-content-inner {
+            padding: 0 0 20px;
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .watermark {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.2);
+            font-weight: 300;
+        }
+    </style>
+</head>
+<body>
+    <div class="faq-container">
+        <div class="faq-header">
+            <h1>Frequently Asked Questions</h1>
+            <p>Find answers to common questions below</p>
+        </div>
+        <ul class="accordion">
+            <li class="accordion-item">
+                <div class="accordion-header">
+                    <h3>What is this service about?</h3>
+                    <div class="icon"></div>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                        <p>Our service provides innovative solutions to modern problems. We leverage cutting-edge technology to deliver exceptional results for our clients across various industries.</p>
+                    </div>
+                </div>
+            </li>
+            <li class="accordion-item">
+                <div class="accordion-header">
+                    <h3>How do I get started?</h3>
+                    <div class="icon"></div>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                        <p>Getting started is easy! Simply sign up on our platform, complete your profile, and choose a plan that fits your needs. Our onboarding process will guide you through every step.</p>
+                    </div>
+                </div>
+            </li>
+            <li class="accordion-item">
+                <div class="accordion-header">
+                    <h3>What payment methods do you accept?</h3>
+                    <div class="icon"></div>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                        <p>We accept all major credit cards (Visa, MasterCard, American Express), PayPal, and bank transfers. All transactions are securely processed with 256-bit encryption.</p>
+                    </div>
+                </div>
+            </li>
+            <li class="accordion-item">
+                <div class="accordion-header">
+                    <h3>Can I cancel my subscription anytime?</h3>
+                    <div class="icon"></div>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                        <p>Yes, you can cancel your subscription at any time with no cancellation fees. Your access will continue until the end of your current billing period.</p>
+                    </div>
+                </div>
+            </li>
+            <li class="accordion-item">
+                <div class="accordion-header">
+                    <h3>Do you offer customer support?</h3>
+                    <div class="icon"></div>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                        <p>Absolutely! We offer 24/7 customer support via live chat, email, and phone. Our average response time is under 15 minutes for priority issues.</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="watermark">Developed by Sohanur Rahman</div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const accordionItems = document.querySelectorAll('.accordion-item');
+            
+            accordionItems.forEach(item => {
+                const header = item.querySelector('.accordion-header');
+                
+                header.addEventListener('click', () => {
+                    const currentlyActive = document.querySelector('.accordion-item.active');
+                    
+                    // If this item is already active, close it
+                    if (item.classList.contains('active')) {
+                        item.classList.remove('active');
+                        item.querySelector('.accordion-content').style.maxHeight = null;
+                        return;
+                    }
+                    
+                    // Close any other open items
+                    if (currentlyActive) {
+                        currentlyActive.classList.remove('active');
+                        currentlyActive.querySelector('.accordion-content').style.maxHeight = null;
+                    }
+                    
+                    // Open this item
+                    item.classList.add('active');
+                    const content = item.querySelector('.accordion-content');
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                });
+            });
+            
+            // Open first item by default
+            if (accordionItems.length > 0) {
+                accordionItems[0].classList.add('active');
+                const firstContent = accordionItems[0].querySelector('.accordion-content');
+                firstContent.style.maxHeight = firstContent.scrollHeight + 'px';
+            }
+        });
+    </script>
+</body>
+</html>

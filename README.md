@@ -1,4 +1,4 @@
-# Screenshot
+# Modern Accordion (FAQ) Component
 
 ![Screenshot](Screenshot.png)
 
